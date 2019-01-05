@@ -1,9 +1,8 @@
-package omid.spring.example.springexample.bookstore;
-
-import org.hibernate.annotations.GenericGenerator;
+package omid.spring.example.springexample.bookstore.model;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 
@@ -17,13 +16,16 @@ public class Author {
     public String family;
     public  int age;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "authors")
     public Set<Book> books = new HashSet<>();
 
     public Author(String name, String family, int age) {
         this.name = name;
         this.family = family;
         this.age = age;
+    }
+
+    public Author() {
     }
 
     public Author(String name, String family, int age, Set<Book> books) {
@@ -73,5 +75,29 @@ public class Author {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return Objects.equals(id, author.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", family='" + family + '\'' +
+                ", age=" + age +
+                ", books=" + books +
+                '}';
     }
 }

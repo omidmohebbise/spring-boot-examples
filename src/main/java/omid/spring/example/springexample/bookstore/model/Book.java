@@ -1,8 +1,9 @@
-package omid.spring.example.springexample.bookstore;
+package omid.spring.example.springexample.bookstore.model;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -14,14 +15,18 @@ public class Book {
     public Date publishDate;
     public double price;
 
-    public Book(String title, Date publishDate, double price, Set<Author> authors) {
+    public Book() {
+    }
+
+    public Book(String title, Date publishDate, double price) {
         this.title = title;
         this.publishDate = publishDate;
         this.price = price;
-        this.authors = authors;
     }
 
-    @ManyToMany
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(name = "Author_book" , joinColumns = @JoinColumn(name = "book_id") ,
+            inverseJoinColumns = @JoinColumn(name="author_id"))
     public Set<Author> authors = new HashSet<>();
 
 
@@ -55,5 +60,29 @@ public class Book {
 
     public void setAuthors(Set<Author> authors) {
         this.authors = authors;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Objects.equals(id, book.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", publishDate=" + publishDate +
+                ", price=" + price +
+                ", authors=" + authors +
+                '}';
     }
 }
