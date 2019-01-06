@@ -29,6 +29,14 @@ public class Book {
         this.price = price;
     }
 
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(name = "Author_book" , joinColumns = @JoinColumn(name = "book_id") ,
             inverseJoinColumns = @JoinColumn(name="author_id"))

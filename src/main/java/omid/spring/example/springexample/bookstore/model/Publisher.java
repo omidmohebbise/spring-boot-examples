@@ -14,10 +14,14 @@ public class Publisher {
     public String title;
     public String address;
 
+    public Publisher() {
+    }
+
     public Publisher(String title, String address) {
         this.title = title;
         this.address = address;
     }
+
 
     public Long getId() {
         return id;

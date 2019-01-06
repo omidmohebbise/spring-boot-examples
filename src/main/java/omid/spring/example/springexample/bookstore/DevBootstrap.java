@@ -40,6 +40,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
 
         Author author = new Author("omid","mohebbi",25);
         Book  book = new Book("C++" , new Date() ,2000);
+        book.setPublisher(publisher);
         author.getBooks().add(book);
         book.getAuthors().add(author);
 
