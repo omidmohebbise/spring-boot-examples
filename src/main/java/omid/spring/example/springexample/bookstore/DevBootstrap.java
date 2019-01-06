@@ -2,8 +2,10 @@ package omid.spring.example.springexample.bookstore;
 
 import omid.spring.example.springexample.bookstore.model.Author;
 import omid.spring.example.springexample.bookstore.model.Book;
+import omid.spring.example.springexample.bookstore.model.Publisher;
 import omid.spring.example.springexample.bookstore.repositories.AuthorsRepository;
 import omid.spring.example.springexample.bookstore.repositories.BooksRepository;
+import omid.spring.example.springexample.bookstore.repositories.PublisherRepository;
 import oracle.net.aso.b;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -15,13 +17,14 @@ import java.util.Date;
 public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> {
     private AuthorsRepository authorsRepository ;
     private BooksRepository booksRepository;
+    private PublisherRepository publisherRepository;
 
-    public DevBootstrap(AuthorsRepository authorsRepository, BooksRepository booksRepository) {
+
+    public DevBootstrap(AuthorsRepository authorsRepository, BooksRepository booksRepository, PublisherRepository publisherRepository) {
         this.authorsRepository = authorsRepository;
         this.booksRepository = booksRepository;
+        this.publisherRepository = publisherRepository;
     }
-
-
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
@@ -30,6 +33,11 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
     }
 
     private void initData() {
+
+        Publisher publisher = new Publisher("Packet","Amercan");
+        publisherRepository.save(publisher);
+
+
         Author author = new Author("omid","mohebbi",25);
         Book  book = new Book("C++" , new Date() ,2000);
         author.getBooks().add(book);

@@ -15,7 +15,12 @@ public class Book {
     public Date publishDate;
     public double price;
 
+    @OneToOne
+    public Publisher publisher;
+
     public Book() {
+
+
     }
 
     public Book(String title, Date publishDate, double price) {
