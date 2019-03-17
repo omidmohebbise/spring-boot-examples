@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-@ControllerAdvice
+//@ControllerAdvice
 public class GlobalRestExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(Exception.class)
+    //@ResponseStatus(HttpStatus.NOT_FOUND)
+    //@ExceptionHandler(Exception.class)
 
     public String defaultExceptionHandler() {
         System.out.println("HOraaaaaaaaaaaaa Error ");

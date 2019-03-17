@@ -21,9 +21,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.concurrent.CountDownLatch;
 
 
-@SpringBootApplication
+//@SpringBootApplication
 // after add security library then it is need to use security configuration.
-@ComponentScan("omid.spring.example.springexample.security")
+//@ComponentScan("omid.spring.example.springexample.security")
 public class RunSpring {
     private static final Logger LOGGER = LoggerFactory.getLogger(RunSpring.class);
 

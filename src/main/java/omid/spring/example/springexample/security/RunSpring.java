@@ -7,6 +7,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,10 +51,28 @@ public class RunSpring {
             return "I am Sth For Admin";
         }
 
-        @RequestMapping("/methodrole")
+        @RequestMapping("/manager")
         @Secured("ROLE_MANAGER")
-        public String testMethodSecurity(){
-            return "testMethodSecurity is ok for MANAGER role";
+        public String testMethodSecurity(@AuthenticationPrincipal User user){
+
+            /*return "testMethodSecurity is ok for MANAGER role"
+                    + " \n "+ user.getPassword() // should print null
+                    + " \n "+ user.getUsername()
+                    + " \n "+ user.getAuthorities().iterator().next().toString() //should print ROLE_MANAGER
+                    + " \n "+ user.isEnabled(); // should print true
+                    */
+            return "manager";
+        }
+        @RequestMapping("/admin")
+        @Secured("ROLE_ADMIN")
+        public String testMethodSecurity1(@AuthenticationPrincipal User user){
+
+            /*return "testMethodSecurity is ok for admin role"
+                    + " \n "+ user.getPassword() // should print null
+                    + " \n "+ user.getUsername()
+                    + " \n "+ user.getAuthorities().iterator().next().toString() //should print ROLE_MANAGER
+                    + " \n "+ user.isEnabled(); // should print true*/
+            return "admin";
         }
 
 
