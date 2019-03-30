@@ -20,7 +20,7 @@ public class SimpleRestConsumer {
 
     @RequestMapping("/callpersons")
     public List<Person> getPersons(){
-        List<Person>  persons= new ArrayList<>();
+        List<Person>  persons= new ArrayList<Person>();
         RestTemplate restTemplate = new RestTemplate();
         persons = restTemplate.getForObject("http://127.0.0.1:8086/getpersons", List.class);
         return persons;

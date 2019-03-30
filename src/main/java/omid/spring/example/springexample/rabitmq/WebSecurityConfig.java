@@ -1,4 +1,4 @@
-package omid.spring.example.springexample.actuator;
+package omid.spring.example.springexample.rabitmq;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,15 +16,45 @@ import java.util.List;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+/*    @Autowired
+    private MyUserDetailService myUserDetailService;
+
+
+
+
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider(){
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setUserDetailsService(myUserDetailService);
+        provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
+        provider.setAuthoritiesMapper(authoritiesMapper());
+
+        return  provider;
+    }
+
+    @Bean
+    public GrantedAuthoritiesMapper authoritiesMapper(){
+        SimpleAuthorityMapper simpleAuthorityMapper = new SimpleAuthorityMapper();
+        simpleAuthorityMapper.setConvertToUpperCase(true);
+        simpleAuthorityMapper.setDefaultAuthority("USER");
+        return simpleAuthorityMapper;
+
+    }
+
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.authenticationProvider(authenticationProvider());
+    }*/
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/actuator/*").permitAll()
-                .antMatchers("/actuator/*/*").permitAll()
-                //.antMatchers("/*").permitAll()
-                //.antMatchers("/actuator/*").permitAll()
-                //.antMatchers("/ineedadminrole").hasRole("admin")
+                .antMatchers("/", "/home").permitAll()
+                .antMatchers("/test*").permitAll()
+                .antMatchers("/ineedadminrole").hasRole("admin")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -38,6 +68,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     }
+
+
+
 
 // In memory users
 

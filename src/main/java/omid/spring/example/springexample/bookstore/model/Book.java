@@ -40,7 +40,7 @@ public class Book {
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(name = "Author_book" , joinColumns = @JoinColumn(name = "book_id") ,
             inverseJoinColumns = @JoinColumn(name="author_id"))
-    public Set<Author> authors = new HashSet<>();
+    public Set<Author> authors = new HashSet<Author>();
 
 
     public String getTitle() {

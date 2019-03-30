@@ -13,15 +13,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@ServletComponentScan
-@SpringBootApplication
-@EnableGlobalMethodSecurity(securedEnabled = true)
+//@ServletComponentScan
+//@SpringBootApplication
+//@EnableGlobalMethodSecurity(securedEnabled = true)
 public class RunSpring {
     public  static   void main(String[] args) {
         ConfigurableApplicationContext contex =  SpringApplication.run(RunSpring.class, args);
     }
 
-    @RestController
+    //@RestController
     public class SimpleRest{
 
         @RequestMapping("/secured")

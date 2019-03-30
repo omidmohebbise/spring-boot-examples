@@ -26,7 +26,7 @@ import java.util.List;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
+/*    @Autowired
     private MyUserDetailService myUserDetailService;
 
 
@@ -35,9 +35,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public DaoAuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        /*UserDetails ud = myUserDetailService.loadUserByUsername("omid");
-        System.out.println(ud.getUsername() + ud.getPassword());
-*/
         provider.setUserDetailsService(myUserDetailService);
         provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
         provider.setAuthoritiesMapper(authoritiesMapper());
@@ -58,15 +55,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
-    }
+    }*/
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
                 .antMatchers("/", "/home").permitAll()
-                //.antMatchers("/test*").permitAll()
-                //.antMatchers("/ineedadminrole").hasRole("admin")
+                .antMatchers("/test*").permitAll()
+                .antMatchers("/ineedadminrole").hasRole("admin")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -86,7 +83,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 // In memory users
 
-    /*@Bean
+    @Bean
     @Override
     public UserDetailsService userDetailsService() {
         List<UserDetails> users = new ArrayList<>();
@@ -111,14 +108,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         users.add(user01);
         users.add(user02);
         users.add(user03);
-       *//* UserDetails user =
+       /* UserDetails user =
                 User.withDefaultPasswordEncoder()
                         .username("user")
                         .password("password")
                         .roles("USER")
-                        .build();*//*
+                        .build();*/
 
 
         return new InMemoryUserDetailsManager(users);
-    }*/
+    }
 }

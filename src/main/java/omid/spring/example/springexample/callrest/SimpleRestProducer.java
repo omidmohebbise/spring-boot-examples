@@ -22,7 +22,7 @@ public class SimpleRestProducer {
 
     @RequestMapping("/getpersons")
     public List<Person> getPersons() {
-        List<Person> persons = new ArrayList<>();
+        List<Person> persons = new ArrayList<Person>();
         for (int i = 0; i < 10; i++) {
             Person person = new Person();
             person.setName("name" + i);

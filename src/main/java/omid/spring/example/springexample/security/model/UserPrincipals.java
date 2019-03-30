@@ -22,7 +22,7 @@ public class UserPrincipals implements UserDetails {
         if(authGroups == null){
             return Collections.emptySet();
         }else{
-            Set<SimpleGrantedAuthority>grantedAuthorities = new HashSet<>();
+            Set<SimpleGrantedAuthority>grantedAuthorities = new HashSet<SimpleGrantedAuthority>();
             authGroups.forEach(group->{
                 grantedAuthorities.add(new SimpleGrantedAuthority(group.getAuthgroup()));
             });
