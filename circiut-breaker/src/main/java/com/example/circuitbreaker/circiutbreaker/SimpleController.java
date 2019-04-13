@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SimpleController {
     //@HystrixCommand(fallbackMethod = "doSomething")
-    @RequestMapping
+    @RequestMapping("/hellowolrd")
     public String getHelloFromCircuitBreaker(){
         return "hello world";
     }
