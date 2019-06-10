@@ -19,5 +19,8 @@ public class ZullServerApplication {
     public static void main(String[] args) {
         SpringApplication.run(ZullServerApplication.class, args);
     }
-
+    @Bean
+    public FirstFilter customZuulFilter() {
+        return new FirstFilter();
+    }
 }
