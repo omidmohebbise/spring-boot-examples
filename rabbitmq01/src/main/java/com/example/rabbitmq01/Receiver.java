@@ -1,4 +1,4 @@
-package com.example.rabitmqsender;
+package com.example.rabbitmq01;
 
 
 import java.util.concurrent.CountDownLatch;
