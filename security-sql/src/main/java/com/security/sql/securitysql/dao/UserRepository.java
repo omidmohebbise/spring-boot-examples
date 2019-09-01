@@ -1,6 +1,6 @@
-package omid.spring.example.springexample.security.dao;
+package com.security.sql.securitysql.dao;
 
-import omid.spring.example.springexample.security.model.User;
+import com.security.sql.securitysql.model.User;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<User , Long> {

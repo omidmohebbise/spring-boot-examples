@@ -1,4 +1,4 @@
-package omid.spring.example.springexample.security;
+package com.security.sql.securitysql;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;

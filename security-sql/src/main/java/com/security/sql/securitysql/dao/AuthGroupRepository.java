@@ -1,6 +1,6 @@
-package omid.spring.example.springexample.security.dao;
+package com.security.sql.securitysql.dao;
 
-import omid.spring.example.springexample.security.model.AuthGroup;
+import com.security.sql.securitysql.model.AuthGroup;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

@@ -1,6 +1,6 @@
-package omid.spring.example.springexample.security;
+package com.security.sql.securitysql;
 
-import omid.spring.example.springexample.security.service.MyUserDetailService;
+import com.security.sql.securitysql.service.MyUserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +18,6 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 import javax.servlet.*;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +25,7 @@ import java.util.List;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-/*    @Autowired
+    @Autowired
     private MyUserDetailService myUserDetailService;
 
 
@@ -55,7 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
-    }*/
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

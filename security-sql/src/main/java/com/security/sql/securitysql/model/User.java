@@ -1,4 +1,4 @@
-package omid.spring.example.springexample.security.model;
+package com.security.sql.securitysql.model;
 
 import javax.persistence.*;
 

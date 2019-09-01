@@ -1,12 +1,11 @@
-package omid.spring.example.springexample.security.service;
+package com.security.sql.securitysql.service;
 
-import omid.spring.example.springexample.security.dao.AuthGroupRepository;
-import omid.spring.example.springexample.security.dao.UserRepository;
+import com.security.sql.securitysql.dao.AuthGroupRepository;
+import com.security.sql.securitysql.dao.UserRepository;
 
-import omid.spring.example.springexample.security.model.AuthGroup;
-import omid.spring.example.springexample.security.model.User;
-import omid.spring.example.springexample.security.model.UserPrincipals;
-import org.springframework.boot.web.servlet.ServletComponentScan;
+import com.security.sql.securitysql.model.AuthGroup;
+import com.security.sql.securitysql.model.User;
+import com.security.sql.securitysql.model.UserPrincipals;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

@@ -1,4 +1,4 @@
-package omid.spring.example.springexample.security.model;
+package com.security.sql.securitysql.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
