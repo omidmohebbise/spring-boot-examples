@@ -34,13 +34,13 @@ public class FirstFilter extends ZuulFilter {
         System.out.println("########################3  shouldFilter");
         System.out.println("Here is shouldFilter method");
         RequestContext requestContext = RequestContext.getCurrentContext();
-        String requestParam  = requestContext.getRequest().getParameter("source");
+        /*String requestParam  = requestContext.getRequest().getParameter("source");
         if(requestParam != null && requestParam.equals("dev")){
             //return true;
         }else{
             //return false;
         }
-
+*/
         return true;
 
 
