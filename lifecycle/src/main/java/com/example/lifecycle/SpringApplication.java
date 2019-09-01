@@ -1,4 +1,4 @@
-package omid.spring.example.springexample.lifecycle;
+package com.example.lifecycle;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

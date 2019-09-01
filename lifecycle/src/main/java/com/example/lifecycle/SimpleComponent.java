@@ -1,4 +1,4 @@
-package omid.spring.example.springexample.loadDataOnStartupWithJava;
+package com.example.lifecycle;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

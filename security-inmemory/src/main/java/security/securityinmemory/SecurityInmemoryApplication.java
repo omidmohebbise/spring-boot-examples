@@ -2,6 +2,8 @@ package security.securityinmemory;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.access.SecurityConfig;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +17,7 @@ public class SecurityInmemoryApplication {
 
     @RestController
     public class MyController{
+
 
         @RequestMapping("/secured")
         public String getSecuredHelloWorld(){

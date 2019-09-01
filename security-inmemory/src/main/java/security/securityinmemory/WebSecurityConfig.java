@@ -39,12 +39,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     @Override
     protected UserDetailsService userDetailsService() {
-        List<UserDetails> list = new ArrayList<>();
+        List<UserDetails> list = new ArrayList<UserDetails>();
 
         UserDetails user =
                 User.withDefaultPasswordEncoder()
                         .username("user")
-                        .password("password")
+                        .password("123")
                         .roles("USER")
                         .build();
 
