@@ -87,6 +87,7 @@
         <module>swagger</module>
         <module>security-sql</module>
         <module>lifecycle</module>
+        <module>simple-read-data-from-db</module>
     </modules>
 
 </project>

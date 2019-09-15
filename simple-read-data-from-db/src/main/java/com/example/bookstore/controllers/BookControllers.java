@@ -1,11 +1,10 @@
-package omid.spring.example.springexample.bookstore.controllers;
+package com.example.bookstore.controllers;
 
-import omid.spring.example.springexample.bookstore.repositories.BooksRepository;
+
+import com.example.bookstore.repositories.BooksRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class BookControllers {

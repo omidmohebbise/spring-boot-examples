@@ -1,12 +1,8 @@
-package omid.spring.example.springexample.bookstore;
+package com.example.bookstore;
 
-import omid.spring.example.springexample.bookstore.model.Author;
-import omid.spring.example.springexample.bookstore.model.Book;
-import omid.spring.example.springexample.bookstore.model.Publisher;
-import omid.spring.example.springexample.bookstore.repositories.AuthorsRepository;
-import omid.spring.example.springexample.bookstore.repositories.BooksRepository;
-import omid.spring.example.springexample.bookstore.repositories.PublisherRepository;
-import oracle.net.aso.b;
+import com.example.bookstore.model.*;
+
+import com.example.bookstore.repositories.*;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
@@ -40,6 +36,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
 
         Author author = new Author("omid","mohebbi",25);
         Book  book = new Book("C++" , new Date() ,2000);
+
         book.setPublisher(publisher);
         author.getBooks().add(book);
         book.getAuthors().add(author);
@@ -48,6 +45,15 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
 
         authorsRepository.save(author);
 
+
+        Author author1 = new Author("ali","mohebbi",25);
+        Author author2 = new Author("amir","mohebbi",25);
+        Author author3 = new Author("haed","mohebbi",25);
+
+
+        authorsRepository.save(author1);
+        authorsRepository.save(author2);
+        authorsRepository.save(author3);
 
         /*Author author1 = new Author("ali" , "ahmadi",30);
         Book b = new Book("java", new Date(), 3000);

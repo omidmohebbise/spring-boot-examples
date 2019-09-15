@@ -1,5 +1,4 @@
-package omid.spring.example.springexample.bookstore.model;
-
+package com.example.bookstore.model;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;

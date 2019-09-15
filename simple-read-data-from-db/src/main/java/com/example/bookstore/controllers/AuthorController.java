@@ -1,6 +1,6 @@
-package omid.spring.example.springexample.bookstore.controllers;
+package com.example.bookstore.controllers;
 
-import omid.spring.example.springexample.bookstore.repositories.AuthorsRepository;
+import com.example.bookstore.repositories.AuthorsRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

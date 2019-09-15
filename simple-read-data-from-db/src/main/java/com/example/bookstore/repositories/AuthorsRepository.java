@@ -1,9 +1,14 @@
-package omid.spring.example.springexample.bookstore.repositories;
+package com.example.bookstore.repositories;
 
-import omid.spring.example.springexample.bookstore.model.Author;
-import org.springframework.data.repository.CrudRepository;
 
-public interface AuthorsRepository extends CrudRepository<Author,Long> {
+import com.example.bookstore.model.Author;
+
+interface MyInterface {
+     Iterable<Author> findByName(String omid);
+}
+
+public interface AuthorsRepository extends MyInterface{//,CrudRepository<Author,Long> {
+
 
 
 }

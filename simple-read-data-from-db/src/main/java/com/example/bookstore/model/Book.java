@@ -1,10 +1,12 @@
-package omid.spring.example.springexample.bookstore.model;
 
+package com.example.bookstore.model;
 import javax.persistence.*;
 import java.util.Date;
+
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+
 
 @Entity
 public class Book {
