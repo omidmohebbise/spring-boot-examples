@@ -88,6 +88,7 @@
         <module>security-sql</module>
         <module>lifecycle</module>
         <module>simple-read-data-from-db</module>
+        <module>circiut-breaker</module>
     </modules>
 
 </project>
