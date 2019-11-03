@@ -39,4 +39,16 @@ public class TestController {
         return file;
 
     }
+
+
+    @GetMapping("/findbyfamily")
+    public Object findByFamily(@RequestParam String family){
+        file = "";
+        authorsRepository.findByFamily(family).forEach(author -> {
+            file = file + "\t" + author.getName() + " " + author.getFamily();
+
+        });
+        return file;
+
+    }
 }

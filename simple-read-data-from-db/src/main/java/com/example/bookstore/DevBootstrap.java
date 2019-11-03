@@ -46,9 +46,9 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         authorsRepository.save(author);
 
 
-        Author author1 = new Author("ali","mohebbi",25);
-        Author author2 = new Author("amir","mohebbi",25);
-        Author author3 = new Author("haed","mohebbi",25);
+        Author author1 = new Author("ali","ahmadi",25);
+        Author author2 = new Author("amir","sadeghi",25);
+        Author author3 = new Author("haed","shahbi",25);
 
 
         authorsRepository.save(author1);
