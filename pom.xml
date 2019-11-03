@@ -89,6 +89,19 @@
         <module>lifecycle</module>
         <module>simple-read-data-from-db</module>
         <module>circiut-breaker</module>
+        <module>call-rest</module>
+        <module>eureka-client-01</module>
+        <module>eureka-client-02</module>
+        <module>exceptionhandler</module>
+        <module>hystrix-server</module>
+        <module>rabbitmq01</module>
+        <module>redis</module>
+        <module>ribbon-client</module>
+        <module>ribbon-server</module>
+        <module>schedule</module>
+        <module>spring-security-01</module>
+        <module>temp</module>
+
     </modules>
 
 </project>
