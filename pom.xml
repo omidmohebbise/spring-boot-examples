@@ -6,8 +6,9 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.8.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+
     </parent>
+
     <groupId>omid.spring.example</groupId>
     <artifactId>springexample</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -19,6 +20,16 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <version>2.1.2.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -53,11 +64,6 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -88,18 +94,14 @@
         <module>lifecycle</module>
         <module>simple-read-data-from-db</module>
         <module>circiut-breaker</module>
-        <module>call-rest</module>
         <module>eureka-client-01</module>
         <module>eureka-client-02</module>
         <module>exceptionhandler</module>
         <module>hystrix-server</module>
         <module>rabbitmq01</module>
         <module>redis</module>
-        <module>ribbon-client</module>
-        <module>ribbon-server</module>
         <module>schedule</module>
         <module>spring-security-01</module>
-        <module>temp</module>
 
     </modules>
 

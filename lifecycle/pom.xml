@@ -6,8 +6,8 @@
         <groupId>omid.spring.example</groupId>
         <artifactId>springexample</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
 
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
     <artifactId>lifecycle</artifactId>

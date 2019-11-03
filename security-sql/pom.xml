@@ -6,7 +6,8 @@
         <groupId>omid.spring.example</groupId>
         <artifactId>springexample</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath>../pom.xml</relativePath>
+
     </parent>
     <groupId>com.security.sql</groupId>
     <artifactId>security-sql</artifactId>
@@ -23,6 +24,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
     </dependencies>
 

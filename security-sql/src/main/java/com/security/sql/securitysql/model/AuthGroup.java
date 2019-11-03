@@ -1,7 +1,4 @@
 package com.security.sql.securitysql.model;
-
-import io.lettuce.core.dynamic.annotation.CommandNaming;
-
 import javax.persistence.*;
 
 @Entity
