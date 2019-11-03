@@ -11,7 +11,7 @@
     <groupId>omid.spring.example</groupId>
     <artifactId>springexample</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springexample</name>
+    <name>spring-examples</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -19,7 +19,6 @@
     </properties>
 
     <dependencies>
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
