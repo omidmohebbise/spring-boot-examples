@@ -35,7 +35,7 @@ public class FoundamentalApplication {
         ReloadableResourceBundleMessageSource messageSource
                 = new ReloadableResourceBundleMessageSource();
 
-        messageSource.setBasename("classpath:messages");
+        messageSource.setBasename("classpath:messages_foundamental");
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }

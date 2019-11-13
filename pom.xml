@@ -96,6 +96,7 @@
         <module>redis</module>
         <module>schedule</module>
         <module>spring-security-01</module>
+        <module>log-manager</module>
 
     </modules>
 
