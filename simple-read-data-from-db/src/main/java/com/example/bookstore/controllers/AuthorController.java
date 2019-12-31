@@ -1,6 +1,6 @@
 package com.example.bookstore.controllers;
 
-import com.example.bookstore.repositories.AuthorsRepository;
+import com.example.bookstore.service.AuthorsRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

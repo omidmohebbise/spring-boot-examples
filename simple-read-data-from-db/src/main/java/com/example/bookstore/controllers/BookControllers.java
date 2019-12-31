@@ -1,7 +1,7 @@
 package com.example.bookstore.controllers;
 
 
-import com.example.bookstore.repositories.BooksRepository;
+import com.example.bookstore.service.BooksRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

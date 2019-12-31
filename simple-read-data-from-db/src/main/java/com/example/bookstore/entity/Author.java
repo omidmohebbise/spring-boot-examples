@@ -1,12 +1,15 @@
-package com.example.bookstore.model;
+package com.example.bookstore.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 
 @Entity
-public class Author {
+public class Author implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long id;
@@ -15,6 +18,7 @@ public class Author {
     public  int age;
 
     @ManyToMany(mappedBy = "authors")
+    @JsonIgnore
     public Set<Book> books = new HashSet<Book>();
 
     public Author(String name, String family, int age) {

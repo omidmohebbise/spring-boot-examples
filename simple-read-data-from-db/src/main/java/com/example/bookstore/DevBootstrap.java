@@ -1,8 +1,8 @@
 package com.example.bookstore;
 
-import com.example.bookstore.model.*;
+import com.example.bookstore.entity.*;
 
-import com.example.bookstore.repositories.*;
+import com.example.bookstore.service.*;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;

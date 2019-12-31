@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  codebeamer-db:
+    image: intland/mysql:5.7.21
+    environment:
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
+      - MYSQL_DATABASE=dbtest
+      - MYSQL_MAX_ALLOWED_PACKET=1024M
+      - MYSQL_INNODB_BUFFER_POOL_SIZE=1G
+      - MYSQL_INNODB_LOG_FILE_SIZE=256M
+      - MYSQL_INNODB_LOG_BUFFER_SIZE=256M
+    ports:
+      - 3306:3306
+    hostname: localhost
+    volumes:
+      - codebeamer-db-data:/var/lib/mysql/data
+volumes:
+  codebeamer-db-data:

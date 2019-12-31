@@ -1,11 +1,8 @@
-package com.example.bookstore.repositories;
+package com.example.bookstore.service;
 
 
-import com.example.bookstore.model.Author;
-import org.springframework.data.jpa.repository.Query;
+import com.example.bookstore.entity.Author;
 import org.springframework.data.repository.CrudRepository;
-
-import java.beans.Transient;
 
 interface MyInterface {
 

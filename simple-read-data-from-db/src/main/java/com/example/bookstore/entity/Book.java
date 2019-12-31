@@ -1,5 +1,7 @@
 
-package com.example.bookstore.model;
+package com.example.bookstore.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -18,6 +20,7 @@ public class Book {
     public double price;
 
     @OneToOne
+    @JsonIgnore
     public Publisher publisher;
 
     public Book() {
