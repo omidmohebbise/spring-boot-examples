@@ -2,3 +2,15 @@
 /liquibase/.gradle
 /liquibase/gradle
 
+/.gradle/
+/.idea/
+/Internationalization/.gradle/
+/Internationalization/gradle/
+/liquibase/.gradle/
+/liquibase/.idea/
+/liquibase/build/
+/liquibase/gradle/
+/Profiling/.gradle/
+/Profiling/gradle/
+/.gradle/
+/liquibase/build/
