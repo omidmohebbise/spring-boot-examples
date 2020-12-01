@@ -1,0 +1,85 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        //classpath("org.liquibase:liquibase-core:2.0.4")
+        //classpath "org.liquibase:liquibase-gradle-plugin:2.0.4"
+        //classpath group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '8.4.1.jre11'
+        //classpath group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '2.3.2.RELEASE'
+        //classpath group: 'org.liquibase.ext', name: 'liquibase-hibernate5', version: '3.6'
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.4.0"
+    }
+}
+
+plugins {
+    id 'org.springframework.boot' version '2.4.0'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+    id 'org.liquibase.gradle' version '2.0.4'
+}
+
+group 'com.omidmohebbise'
+version '1.0-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+configurations {
+    providedRuntime
+}
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.3.5.RELEASE'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.3.5.RELEASE'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.3.5.RELEASE'
+
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '2.3.2.RELEASE'
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    testCompileOnly 'org.projectlombok:lombok:1.18.16'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+    compile group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '8.4.1.jre11'
+    liquibaseRuntime group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '8.4.1.jre11'
+
+    //liquibaseRuntime('org.liquibase:liquibase-core:3.6.2')
+
+    liquibaseRuntime group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.3.5.RELEASE'
+
+
+    liquibaseRuntime('org.liquibase:liquibase-groovy-dsl:2.0.1')
+    liquibaseRuntime('org.liquibase.ext:liquibase-hibernate5:3.6')
+
+    // added after: Unable to initialize main class liquibase.integration.commandline.Main java.lang.NoClassDefFoundError: ch/qos/logback/core/filter/Filter
+    liquibaseRuntime 'ch.qos.logback:logback-core:1.2.3'
+    liquibaseRuntime 'ch.qos.logback:logback-classic:1.2.3'
+
+    //liquibaseRuntime sourceSets.main.output
+
+}
+
+liquibase {
+    activities {
+        main {
+            changeLogFile 'src/main/resources/changelog.xml'
+            url 'jdbc:sqlserver://localhost:1433;databaseName=wow'
+            referenceUrl 'hibernate:spring:com.omidmohebbise.liquibase?dialect=org.hibernate.dialect.SQLServer2012Dialect'
+            username 'sa'
+            password 'Q!w2e3r4'
+        }
+    }
+}
+
+
+
+
+

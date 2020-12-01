@@ -3,8 +3,11 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "org.liquibase:liquibase-gradle-plugin:1.1.1"
+        classpath("org.liquibase:liquibase-core:2.0.4")
+        classpath "org.liquibase:liquibase-gradle-plugin:2.0.4"
         classpath group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '8.4.1.jre11'
+        classpath group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '2.3.2.RELEASE'
+        classpath group: 'org.liquibase.ext', name: 'liquibase-hibernate5', version: '3.6'
 
     }
 }
@@ -13,7 +16,7 @@ plugins {
     id 'org.springframework.boot' version '2.3.5.RELEASE'
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
     id 'java'
-    id 'org.liquibase.gradle' version '1.1.1'
+    id 'org.liquibase.gradle' version '2.0.4'
 }
 
 group 'com.omidmohebbise'
@@ -25,31 +28,49 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    compile group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '8.4.1.jre11'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.3.5.RELEASE'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.3.5.RELEASE'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.3.5.RELEASE'
+
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '2.3.2.RELEASE'
+
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     compileOnly 'org.projectlombok:lombok:1.18.16'
     annotationProcessor 'org.projectlombok:lombok:1.18.16'
-//    compileOnly "org.liquibase:liquibase-gradle-plugin:1.1.1"
-
     testCompileOnly 'org.projectlombok:lombok:1.18.16'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+    liquibaseRuntime 'org.liquibase:liquibase-core:2.0.4'
+//    liquibaseRuntime 'org.liquibase:liquibase-groovy-dsl:2.1.1'
+    liquibaseRuntime group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '8.4.1.jre11'
+//    liquibaseRuntime group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.3.5.RELEASE'
+
+    //classpath group: 'org.liquibase.ext', name: 'liquibase-hibernate5', version: '3.6'
+    //compile 'org.liquibase.ext:liquibase-hibernate5:3.6'
 
 }
 
 liquibase {
     activities {
+
         main {
+
+            driver 'com.microsoft.sqlserver.jdbc.SQLServerDriver'
             changeLogFile 'src/main/resources/changelog.xml'
+//          diffChangeLogFile 'src/main/resources/liquibase-diff-changeLog.xml'
             url 'jdbc:sqlserver://localhost;databaseName=wow'
             username 'sa'
             password 'Q!w2e3r4'
-            referenceUsername 'sa'
-            referencePassword 'Q!w2e3r4'
-            referenceUrl 'jdbc:sqlserver://localhost:1433;databaseName=wow;integratedSecurity=false;'
+//            referenceUsername 'sa'
+//            referencePassword 'Q!w2e3r4'
+
+            referenceDriver 'liquibase.ext.hibernate.database.connection.HibernateDriver'
+            //referenceDriver './lib/spring-boot-starter-jdbc-2.3.2.RELEASE.jar'
+            //referenceUrl 'jdbc:sqlserver://localhost:1433;databaseName=wow;integratedSecurity=false;'
+            referenceUrl 'hibernate:spring:com.omidmohebbise.liquibase?hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy?dialect=org.hibernate.dialect.SQLServer2012Dialect'
 
         }
     }

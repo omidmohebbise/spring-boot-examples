@@ -1,6 +1,4 @@
-/liquibase/build
-/liquibase/.gradle
-/liquibase/gradle
+
 
 /.gradle/
 /.idea/
@@ -10,6 +8,12 @@
 /liquibase/.idea/
 /liquibase/build/
 /liquibase/gradle/
+
+/liquibasev1/.gradle/
+/liquibasev1/.idea/
+/liquibasev1/build/
+/liquibasev1/gradle/
+
 /Profiling/.gradle/
 /Profiling/gradle/
 /.gradle/
