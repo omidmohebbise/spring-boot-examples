@@ -1,0 +1,77 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.10.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
+    <changeSet author="rd139 (generated)" id="1606904411858-1">
+        <createSequence schemaName="HIBERNATE" sequenceName="hibernate_sequence"/>
+    </changeSet>
+    <changeSet author="rd139 (generated)" id="1606904411858-2">
+        <createTable schemaName="HIBERNATE" tableName="departments">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="departmentsPK"/>
+            </column>
+            <column name="title" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rd139 (generated)" id="1606904411858-3">
+        <createTable schemaName="HIBERNATE" tableName="persons">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="personsPK"/>
+            </column>
+            <column name="age" type="int"/>
+            <column name="firstname" type="varchar(255)"/>
+            <column name="lastname" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rd139 (generated)" id="1606904411858-4">
+        <createTable schemaName="HIBERNATE" tableName="persons1">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="persons1PK"/>
+            </column>
+            <column name="age" type="int"/>
+            <column name="firstname" type="varchar(255)"/>
+            <column name="lastname" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rd139 (generated)" id="1606904411858-5">
+        <createTable schemaName="HIBERNATE" tableName="persons2">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="persons2PK"/>
+            </column>
+            <column name="age" type="int"/>
+            <column name="firstname" type="varchar(255)"/>
+            <column name="lastname" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rd139 (generated)" id="1606904411858-6">
+        <createTable schemaName="HIBERNATE" tableName="persons3">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="persons3PK"/>
+            </column>
+            <column name="age" type="int"/>
+            <column name="firstname" type="varchar(255)"/>
+            <column name="lastname" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rd139 (generated)" id="1606904411858-7">
+        <createTable schemaName="HIBERNATE" tableName="persons4">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="persons4PK"/>
+            </column>
+            <column name="age" type="int"/>
+            <column name="firstname" type="varchar(255)"/>
+            <column name="lastname" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rd139 (generated)" id="1606904411858-8">
+        <createTable schemaName="HIBERNATE" tableName="persons5">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="persons5PK"/>
+            </column>
+            <column name="age" type="int"/>
+            <column name="firstname" type="varchar(255)"/>
+            <column name="lastname" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rd139 (generated)" id="1606904411858-9">
+        <dropTable schemaName="hr" tableName="table_namefdgdfgdfg"/>
+    </changeSet>
+</databaseChangeLog>

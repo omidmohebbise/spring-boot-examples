@@ -1,0 +1,40 @@
+{ "databaseChangeLog": [
+  {
+    "changeSet": {
+      "id": "1606892413427-1",
+      "author": "rd139 (generated)",
+      "changes": [
+        {
+          "createTable": {
+            "columns": [
+              {
+                "column": {
+                  "computed": false,
+                  "name": "column_1",
+                  "type": "int"
+                }
+              },
+              {
+                "column": {
+                  "computed": false,
+                  "name": "column_2",
+                  "type": "int"
+                }
+              },
+              {
+                "column": {
+                  "computed": false,
+                  "name": "column_3",
+                  "type": "int"
+                }
+              }]
+            ,
+            "schemaName": "hr",
+            "tableName": "table_namefdgdfgdfg"
+          }
+        }]
+      
+    }
+  }
+  
+]}

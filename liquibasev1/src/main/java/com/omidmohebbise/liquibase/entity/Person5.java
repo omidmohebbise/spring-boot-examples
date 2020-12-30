@@ -7,10 +7,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "Persons1" ,schema = "hr")
+@Table(name = "Persons5" ,schema = "hr")
 @Data
 @NoArgsConstructor
-public class Person1 implements Serializable {
+public class Person5 implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;

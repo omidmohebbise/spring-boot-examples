@@ -63,21 +63,58 @@ dependencies {
     liquibaseRuntime 'ch.qos.logback:logback-core:1.2.3'
     liquibaseRuntime 'ch.qos.logback:logback-classic:1.2.3'
 
+    liquibaseRuntime sourceSets.main.runtimeClasspath
+    liquibaseRuntime sourceSets.main.output
+
+    liquibaseRuntime files('build/classes/java/main')
+    liquibaseRuntime files('build/resources/main')
     //liquibaseRuntime sourceSets.main.output
 
 }
 
+diff.dependsOn assemble
+diffChangeLog.dependsOn assemble
+generateChangelog.dependsOn build
+
+
+def date = new Date()
+def formattedDate = date.format('yyyyMMddHHmmss')
+
 liquibase {
     activities {
         main {
-            changeLogFile 'src/main/resources/changelog.xml'
+            //classpath 'src/main/java/resources/changelog'
+            liquibaseSchemaName 'dbo'
+            databaseChangeLogTableName 'liquibaseChangeLog'
+            changeLogFile 'src/main/resources/changelog/changes/log_'+formattedDate+'.json'
             url 'jdbc:sqlserver://localhost:1433;databaseName=wow'
-            referenceUrl 'hibernate:spring:com.omidmohebbise.liquibase?dialect=org.hibernate.dialect.SQLServer2012Dialect'
             username 'sa'
             password 'Q!w2e3r4'
+
+
+            referenceSchemas 'hr','dbo','HIBERNATE'
+            referenceUrl 'hibernate:spring:com.omidmohebbise.liquibase.entity?dialect=org.hibernate.dialect.SQLServer2012Dialect&hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy'
+
+            includeSchema true
+            outputDefaultSchema 'false'
+
+            //schemas 'hr'
+
         }
+//        diffChangeLog{
+//            changeLogFile 'src/main/resources/changelog/changes/log_'+formattedDate+'.json'
+//            url 'jdbc:sqlserver://localhost:1433;databaseName=wow'
+//            username 'sa'
+//            password 'Q!w2e3r4'
+//            referenceSchemas 'hr','dbo','HIBERNATE'
+//            referenceUrl 'hibernate:spring:com.omidmohebbise.liquibase.entity?dialect=org.hibernate.dialect.SQLServer2012Dialect&hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy'
+//            includeSchema 'true'
+//        }
     }
 }
+
+
+
 
 
 

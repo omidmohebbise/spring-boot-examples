@@ -4,12 +4,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "Departments" ,schema = "hr")
+@Table( name = "Departments" ,schema = "hr" ,catalog = "hr")
 @Data
 @NoArgsConstructor
-public class Department {
+public class Department  implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
