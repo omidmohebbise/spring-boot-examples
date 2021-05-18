@@ -1,0 +1,334 @@
+{ "databaseChangeLog": [
+  {
+    "changeSet": {
+      "id": "1609143017504-1",
+      "author": "rd139 (generated)",
+      "changes": [
+        {
+          "createSequence": {
+            "schemaName": "HIBERNATE",
+            "sequenceName": "hibernate_sequence"
+          }
+        }]
+      
+    }
+  },
+  
+  {
+    "changeSet": {
+      "id": "1609143017504-2",
+      "author": "rd139 (generated)",
+      "changes": [
+        {
+          "createTable": {
+            "columns": [
+              {
+                "column": {
+                  "autoIncrement": true,
+                  "constraints": {
+                    "nullable": false,
+                    "primaryKey": true,
+                    "primaryKeyName": "departmentsPK"
+                  },
+                  "name": "id",
+                  "type": "bigint"
+                }
+              },
+              {
+                "column": {
+                  "name": "title",
+                  "type": "varchar(255)"
+                }
+              }]
+            ,
+            "schemaName": "HIBERNATE",
+            "tableName": "departments"
+          }
+        }]
+      
+    }
+  },
+  
+  {
+    "changeSet": {
+      "id": "1609143017504-3",
+      "author": "rd139 (generated)",
+      "changes": [
+        {
+          "createTable": {
+            "columns": [
+              {
+                "column": {
+                  "autoIncrement": true,
+                  "constraints": {
+                    "nullable": false,
+                    "primaryKey": true,
+                    "primaryKeyName": "personsPK"
+                  },
+                  "name": "id",
+                  "type": "bigint"
+                }
+              },
+              {
+                "column": {
+                  "name": "age",
+                  "type": "int"
+                }
+              },
+              {
+                "column": {
+                  "name": "firstname",
+                  "type": "varchar(255)"
+                }
+              },
+              {
+                "column": {
+                  "name": "lastname",
+                  "type": "varchar(255)"
+                }
+              }]
+            ,
+            "schemaName": "HIBERNATE",
+            "tableName": "persons"
+          }
+        }]
+      
+    }
+  },
+  
+  {
+    "changeSet": {
+      "id": "1609143017504-4",
+      "author": "rd139 (generated)",
+      "changes": [
+        {
+          "createTable": {
+            "columns": [
+              {
+                "column": {
+                  "autoIncrement": true,
+                  "constraints": {
+                    "nullable": false,
+                    "primaryKey": true,
+                    "primaryKeyName": "persons1PK"
+                  },
+                  "name": "id",
+                  "type": "bigint"
+                }
+              },
+              {
+                "column": {
+                  "name": "age",
+                  "type": "int"
+                }
+              },
+              {
+                "column": {
+                  "name": "firstname",
+                  "type": "varchar(255)"
+                }
+              },
+              {
+                "column": {
+                  "name": "lastname",
+                  "type": "varchar(255)"
+                }
+              }]
+            ,
+            "schemaName": "HIBERNATE",
+            "tableName": "persons1"
+          }
+        }]
+      
+    }
+  },
+  
+  {
+    "changeSet": {
+      "id": "1609143017504-5",
+      "author": "rd139 (generated)",
+      "changes": [
+        {
+          "createTable": {
+            "columns": [
+              {
+                "column": {
+                  "autoIncrement": true,
+                  "constraints": {
+                    "nullable": false,
+                    "primaryKey": true,
+                    "primaryKeyName": "persons2PK"
+                  },
+                  "name": "id",
+                  "type": "bigint"
+                }
+              },
+              {
+                "column": {
+                  "name": "age",
+                  "type": "int"
+                }
+              },
+              {
+                "column": {
+                  "name": "firstname",
+                  "type": "varchar(255)"
+                }
+              },
+              {
+                "column": {
+                  "name": "lastname",
+                  "type": "varchar(255)"
+                }
+              }]
+            ,
+            "schemaName": "HIBERNATE",
+            "tableName": "persons2"
+          }
+        }]
+      
+    }
+  },
+  
+  {
+    "changeSet": {
+      "id": "1609143017504-6",
+      "author": "rd139 (generated)",
+      "changes": [
+        {
+          "createTable": {
+            "columns": [
+              {
+                "column": {
+                  "autoIncrement": true,
+                  "constraints": {
+                    "nullable": false,
+                    "primaryKey": true,
+                    "primaryKeyName": "persons3PK"
+                  },
+                  "name": "id",
+                  "type": "bigint"
+                }
+              },
+              {
+                "column": {
+                  "name": "age",
+                  "type": "int"
+                }
+              },
+              {
+                "column": {
+                  "name": "firstname",
+                  "type": "varchar(255)"
+                }
+              },
+              {
+                "column": {
+                  "name": "lastname",
+                  "type": "varchar(255)"
+                }
+              }]
+            ,
+            "schemaName": "HIBERNATE",
+            "tableName": "persons3"
+          }
+        }]
+      
+    }
+  },
+  
+  {
+    "changeSet": {
+      "id": "1609143017504-7",
+      "author": "rd139 (generated)",
+      "changes": [
+        {
+          "createTable": {
+            "columns": [
+              {
+                "column": {
+                  "autoIncrement": true,
+                  "constraints": {
+                    "nullable": false,
+                    "primaryKey": true,
+                    "primaryKeyName": "persons4PK"
+                  },
+                  "name": "id",
+                  "type": "bigint"
+                }
+              },
+              {
+                "column": {
+                  "name": "age",
+                  "type": "int"
+                }
+              },
+              {
+                "column": {
+                  "name": "firstname",
+                  "type": "varchar(255)"
+                }
+              },
+              {
+                "column": {
+                  "name": "lastname",
+                  "type": "varchar(255)"
+                }
+              }]
+            ,
+            "schemaName": "HIBERNATE",
+            "tableName": "persons4"
+          }
+        }]
+      
+    }
+  },
+  
+  {
+    "changeSet": {
+      "id": "1609143017504-8",
+      "author": "rd139 (generated)",
+      "changes": [
+        {
+          "createTable": {
+            "columns": [
+              {
+                "column": {
+                  "autoIncrement": true,
+                  "constraints": {
+                    "nullable": false,
+                    "primaryKey": true,
+                    "primaryKeyName": "persons5PK"
+                  },
+                  "name": "id",
+                  "type": "bigint"
+                }
+              },
+              {
+                "column": {
+                  "name": "age",
+                  "type": "int"
+                }
+              },
+              {
+                "column": {
+                  "name": "firstname",
+                  "type": "varchar(255)"
+                }
+              },
+              {
+                "column": {
+                  "name": "lastname",
+                  "type": "varchar(255)"
+                }
+              }]
+            ,
+            "schemaName": "HIBERNATE",
+            "tableName": "persons5"
+          }
+        }]
+      
+    }
+  }
+  
+]}
