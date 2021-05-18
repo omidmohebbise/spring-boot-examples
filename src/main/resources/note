@@ -1,3 +1,0 @@
-https://onlinehelp.coveo.com/en/ces/7.0/administrator/changing_the_rabbitmq_administrator_password.htm
-docker run -d --hostname my-rabbit --name some-rabbit -p 15672:15672 rabbitmq:3-management
-user & pass guest guest
