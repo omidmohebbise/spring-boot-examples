@@ -16,5 +16,6 @@
 
 /Profiling/.gradle/
 /Profiling/gradle/
-/.gradle/
-/liquibase/build/
+/db-migration/liquibase/.gradle/
+/HALBrowser/gradle/wrapper/
+/Internationalization/build/

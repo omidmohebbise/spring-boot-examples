@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  postgressDB:
+    image: postgres
+    environment:
+      - POSTGRES_DB=omid
+      - POSTGRES_USER=usr1
+      - POSTGRES_PASSWORD=Q!w2e3r4
+    ports:
+      - 5432:5432
+  dbsqlserver:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    environment:
+        ACCEPT_EULA: Y
+        SA_PASSWORD: Q!w2e3r4
+    container_name: sqlserver
+    ports:
+      - 1433:1433
+
