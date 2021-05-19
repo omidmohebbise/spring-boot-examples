@@ -1,4 +1,4 @@
-## Config Server Simple Example
+<h1> Config Server Simple Example</h1>
 
 <p>
 There is simple example which make it easy to understand server-config configuration.
