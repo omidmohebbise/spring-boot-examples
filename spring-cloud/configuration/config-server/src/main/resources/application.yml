@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/omidmohebbise/spring-boot-examples
+          search-paths: spring-cloud/configuration/config-files
+server:
+  port: 8888
