@@ -24,4 +24,12 @@ public class Person {
     public void setFamily(String family) {
         this.family = family;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", family='" + family + '\'' +
+                '}';
+    }
 }

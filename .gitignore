@@ -23,3 +23,5 @@
 /db-migration/liquibasev1/.gradle/
 /db-migration/liquibasev1/build/
 /db-migration/liquibasev1/gradle/wrapper/
+/Profiling/.gradle/
+/Profiling/gradle/
