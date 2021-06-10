@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  cassandra:
+    image: docker.io/bitnami/cassandra:latest
+    ports:
+      - '7000:7000'
+      - '9042:9042'
+    environment:
+      - CASSANDRA_SEEDS=cassandra
+      - CASSANDRA_PASSWORD_SEEDER=yes
+#      - CASSANDRA_USERNAME=user
+#      - CASSANDRA_PASSWORD=pass123
+      - CASSANDRA_CFG_RACKDC_PREFER_LOCAL=true
+
