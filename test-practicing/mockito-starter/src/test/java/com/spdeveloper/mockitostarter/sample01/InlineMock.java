@@ -1,4 +1,4 @@
-package com.spdeveloper.mockitostarter.firstsamples;
+package com.spdeveloper.mockitostarter.sample01;
 
 import org.junit.jupiter.api.Test;
 
