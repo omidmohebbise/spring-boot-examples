@@ -9,5 +9,6 @@ public interface PersonPersistence {
     List<Person> findAll();
     Person findById(Long id);
     void deleteById(Long id);
+    void delete(Person person);
 
 }

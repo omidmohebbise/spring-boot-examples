@@ -34,4 +34,9 @@ public class PersonPersistenceImpl implements PersonPersistence {
     public void deleteById(Long id) {
         personJpaRepository.deleteById(id);
     }
+
+    @Override
+    public void delete(Person person) {
+        personJpaRepository.delete(person);
+    }
 }
