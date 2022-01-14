@@ -12,17 +12,17 @@ import java.util.Optional;
 
 @Mapper
 public interface UserMapper {
-    @Select("SELECT * FROM users WHERE username = #{username}")
+    @Select("SELECT * FROM identity.users WHERE username = #{username}")
     User findUserByUsername(String username);
 
-    @Select("SELECT * FROM users WHERE id = #{id}")
+    @Select("SELECT * FROM identity.users WHERE id = #{id}")
     Optional<User> findById(long id);
 
-    @Insert("insert into users " +
-            "(active, first_name, last_name, last_refresh, password, remember_me, username)" +
-            "values (#{active},#{firstName},#{lastName},#{lastRefresh},#{password},#{rememberMe},#{username});")
+    @Insert("insert into identity.users " +
+            "( first_name, last_name, last_refresh, password, remember_me, username)" +
+            "values (#{firstName},#{lastName},#{lastRefresh},#{password},#{rememberMe},#{username});")
     void insert(User user);
 
-    @Update("update users set  remember_me= #{rememberMe} , token = #{token}, last_refresh = #{lastRefresh} where id = #{id}")
+    @Update("update identity.users set  remember_me= #{rememberMe} , token = #{token}, last_refresh = #{lastRefresh} where id = #{id}")
     void update(User user);
 }

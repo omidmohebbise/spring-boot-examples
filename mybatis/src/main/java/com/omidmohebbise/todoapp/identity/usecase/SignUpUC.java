@@ -24,7 +24,6 @@ public class SignUpUC {
         user.setFirstName(signUpRequest.getFirstName());
         user.setLastName(signUpRequest.getLastName());
         user.setPassword(passwordEncoder.encode(signUpRequest.getPassword()));
-        user.setActive(true);
         userRepository.insert(user);
         return true;
     }
