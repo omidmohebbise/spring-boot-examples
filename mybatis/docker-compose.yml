@@ -1,0 +1,19 @@
+version: '3'
+services:
+
+  db:
+    image: postgres:12.7
+    container_name: todo_app_db
+    ports:
+      - 4321:5432
+    environment:
+      - POSTGRES_DB=todoapp
+      - POSTGRES_USER=todoapp_user
+      - POSTGRES_PASSWORD=123456
+    networks:
+      - todo-app-network
+networks:
+  todo-app-network:
+
+
+
