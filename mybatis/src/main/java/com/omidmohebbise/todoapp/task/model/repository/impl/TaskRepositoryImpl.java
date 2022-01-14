@@ -1,15 +1,15 @@
-package com.omidmohebbise.todoapp.task.model.repository;
+package com.omidmohebbise.todoapp.task.model.repository.impl;
 
 import com.omidmohebbise.todoapp.task.model.TaskEntity;
+import com.omidmohebbise.todoapp.task.model.repository.TaskRepository;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class TaskRepositoryImpl implements TaskRepository{
+public class TaskRepositoryImpl implements TaskRepository {
     private TaskJpaRepository taskJpaRepository;
 
     public TaskRepositoryImpl(TaskJpaRepository taskJpaRepository) {

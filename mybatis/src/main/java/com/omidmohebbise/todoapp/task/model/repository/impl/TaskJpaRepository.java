@@ -1,4 +1,4 @@
-package com.omidmohebbise.todoapp.task.model.repository;
+package com.omidmohebbise.todoapp.task.model.repository.impl;
 
 import com.omidmohebbise.todoapp.task.model.TaskEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
