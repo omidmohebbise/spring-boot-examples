@@ -1,13 +1,11 @@
 package com.omidmohebbise.todoapp.identity.config.model;
-import com.omidmohebbise.todoapp.identity.model.UserEntity;
+import com.omidmohebbise.todoapp.identity.model.User;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class UserPrincipal implements  UserDetails {
     private final Long id;
@@ -23,19 +21,20 @@ public class UserPrincipal implements  UserDetails {
         this.authorities = authorities;
     }
 
-    public static UserPrincipal create(UserEntity user) {
-        List<GrantedAuthority> authorities = user.getRoles().stream().map(x->
-                new SimpleGrantedAuthority(x.getTitle())).collect(Collectors.toList());
+    public static UserPrincipal create(User user) {
+//        List<GrantedAuthority> authorities = user.getRoles().stream().map(x->
+//                new SimpleGrantedAuthority(x.getTitle())).collect(Collectors.toList());
 
         return new UserPrincipal(
                 user.getId(),
                 user.getUsername(),
                 user.getPassword(),
-                authorities
+                new ArrayList<>()
+                //authorities
         );
     }
 
-    public static UserPrincipal create(UserEntity user, Map<String, Object> attributes) {
+    public static UserPrincipal create(User user, Map<String, Object> attributes) {
         UserPrincipal userPrincipal = UserPrincipal.create(user);
         userPrincipal.setAttributes(attributes);
         return userPrincipal;

@@ -1,7 +1,7 @@
 package com.omidmohebbise.todoapp.identity.config.model;
 
 
-import com.omidmohebbise.todoapp.identity.model.UserEntity;
+import com.omidmohebbise.todoapp.identity.model.User;
 import com.omidmohebbise.todoapp.identity.model.repository.UserRepository;
 import io.jsonwebtoken.*;
 
@@ -28,7 +28,7 @@ public class TokenProvider {
     }
 
     public String createToken(Authentication authentication, Boolean rememberMe) {
-        UserEntity userPrincipal = (UserEntity) authentication.getPrincipal();
+        User userPrincipal = (User) authentication.getPrincipal();
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + sessionTimeOut);
         String token = Jwts.builder()
@@ -38,11 +38,11 @@ public class TokenProvider {
                 .signWith(SignatureAlgorithm.HS512, secretKey)
                 .compact();
 
-        UserEntity user = userPrincipal;
+        User user = userPrincipal;
         user.setToken(token);
         user.setLastRefresh(now);
         user.setRememberMe(rememberMe != null && rememberMe ? true : false);
-        userRepository.save(user);
+        userRepository.update(user);
 
         return token;
     }
@@ -56,7 +56,7 @@ public class TokenProvider {
         return Long.parseLong(claims.getSubject());
     }
 
-    public UserEntity findUserByToken(String token) {
+    public User findUserByToken(String token) {
         return userRepository.findById(getUserIdFromToken(token)).get();
     }
 

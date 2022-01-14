@@ -27,7 +27,7 @@ dependencies {
 	runtimeOnly 'org.postgresql:postgresql'
 	implementation 'io.jsonwebtoken:jjwt:0.5.1'
 	annotationProcessor 'org.projectlombok:lombok'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'

@@ -1,7 +1,7 @@
 package com.omidmohebbise.todoapp.task.usecase;
 
 import com.omidmohebbise.todoapp.identity.usecase.GetCurrentUserUC;
-import com.omidmohebbise.todoapp.task.model.TaskEntity;
+import com.omidmohebbise.todoapp.task.model.Task;
 import com.omidmohebbise.todoapp.task.model.repository.TaskRepository;
 import com.omidmohebbise.todoapp.task.usecase.dto.TaskDmlDto;
 import org.springframework.stereotype.Service;
@@ -16,13 +16,12 @@ public class AddTaskUC {
         this.taskRepository = taskRepository;
     }
 
-    public long execute(TaskDmlDto taskDto)
-    {
-        TaskEntity taskEntity = new TaskEntity();
-        taskEntity.setTitle(taskDto.getTitle());
-        taskEntity.setDoDate(taskDto.getDoDate());
-        taskEntity.setUser(getCurrentUserUC.execute());
-        return taskRepository.save(taskEntity).getId();
+    public long execute(TaskDmlDto taskDto) {
+        Task task = new Task();
+        task.setTitle(taskDto.getTitle());
+        task.setDoDate(taskDto.getDoDate());
+        task.setUserId(getCurrentUserUC.execute().getId());
+        return taskRepository.insert(task);
 
     }
 }

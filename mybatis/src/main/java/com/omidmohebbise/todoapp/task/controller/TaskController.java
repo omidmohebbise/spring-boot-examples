@@ -31,7 +31,8 @@ public class TaskController {
 
     @PutMapping(path = "/tasks/edit/{id}")
     public ResponseEntity<?> editTask(@PathVariable long id, @RequestBody TaskDmlDto taskDto) {
-        return ResponseEntity.ok().body(editTaskUC.execute(id, taskDto));
+        editTaskUC.execute(id, taskDto);
+        return ResponseEntity.ok().body("");
     }
 
     @DeleteMapping(path = "/tasks/delete/{id}")

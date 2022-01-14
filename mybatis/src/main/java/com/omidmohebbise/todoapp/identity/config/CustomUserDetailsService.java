@@ -1,7 +1,7 @@
 package com.omidmohebbise.todoapp.identity.config;
 
 
-import com.omidmohebbise.todoapp.identity.model.UserEntity;
+import com.omidmohebbise.todoapp.identity.model.User;
 import com.omidmohebbise.todoapp.identity.config.model.UserPrincipal;
 import com.omidmohebbise.todoapp.identity.model.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Transactional
     public UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException {
-        UserEntity user = userRepository.findUserByUsername(username)
+        User user = userRepository.findUserByUsername(username)
                 .orElseThrow(() ->
                         new UsernameNotFoundException("User not found with : " + username)
                 );
@@ -31,7 +31,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Transactional
     public UserDetails loadUserById(Long id) {
-        UserEntity user = userRepository.findById(id).orElseThrow(
+        User user = userRepository.findById(id).orElseThrow(
                 () -> new UsernameNotFoundException("User not found.")
         );
 

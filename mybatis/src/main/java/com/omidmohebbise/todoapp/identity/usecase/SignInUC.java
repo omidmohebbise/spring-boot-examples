@@ -1,8 +1,7 @@
 package com.omidmohebbise.todoapp.identity.usecase;
 
 import com.omidmohebbise.todoapp.identity.config.model.TokenProvider;
-import com.omidmohebbise.todoapp.identity.model.RoleEntity;
-import com.omidmohebbise.todoapp.identity.model.UserEntity;
+import com.omidmohebbise.todoapp.identity.model.User;
 import com.omidmohebbise.todoapp.identity.usecase.dto.AuthenticationRequestDto;
 import com.omidmohebbise.todoapp.identity.usecase.dto.AuthenticationResponseDto;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,8 +10,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-
-import java.util.stream.Collectors;
 
 @Service
 public class SignInUC {
@@ -28,11 +25,11 @@ public class SignInUC {
 
 
     public AuthenticationResponseDto execute(AuthenticationRequestDto authenticationRequestDto) {
-        UserEntity user = findUserByUsernameUC.find(authenticationRequestDto.getUsername());
-        String roles = user.getRoles().stream().map(RoleEntity::getTitle).collect(Collectors.joining(","));
+        User user = findUserByUsernameUC.find(authenticationRequestDto.getUsername());
+        //String roles = user.getRoles().stream().map(RoleEntity::getTitle).collect(Collectors.joining(","));
         Authentication authentication;
         authentication = new UsernamePasswordAuthenticationToken(user, user.getPassword(),
-                AuthorityUtils.commaSeparatedStringToAuthorityList(roles));
+                AuthorityUtils.commaSeparatedStringToAuthorityList(null));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         return AuthenticationResponseDto.builder()
                 .token(tokenProvider.createToken(authentication, false))

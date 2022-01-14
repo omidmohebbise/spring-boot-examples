@@ -1,6 +1,6 @@
 package com.omidmohebbise.todoapp.identity.usecase;
 
-import com.omidmohebbise.todoapp.identity.model.UserEntity;
+import com.omidmohebbise.todoapp.identity.model.User;
 import com.omidmohebbise.todoapp.identity.model.repository.UserRepository;
 import com.omidmohebbise.todoapp.identity.usecase.dto.SignUpRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,13 +19,13 @@ public class SignUpUC {
 
     @Transactional
     public boolean execute(SignUpRequest signUpRequest) {
-        UserEntity user = new UserEntity();
+        User user = new User();
         user.setUsername(signUpRequest.getUsername());
         user.setFirstName(signUpRequest.getFirstName());
         user.setLastName(signUpRequest.getLastName());
         user.setPassword(passwordEncoder.encode(signUpRequest.getPassword()));
         user.setActive(true);
-        userRepository.save(user);
+        userRepository.insert(user);
         return true;
     }
 

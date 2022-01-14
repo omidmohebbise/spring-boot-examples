@@ -1,15 +1,17 @@
 package com.omidmohebbise.todoapp.identity.model.repository;
 
-import com.omidmohebbise.todoapp.identity.model.UserEntity;
+import com.omidmohebbise.todoapp.identity.model.User;
 
 import java.util.Optional;
 
 
-public interface UserRepository  {
+public interface UserRepository {
 
-     Optional<UserEntity> findUserByUsername(String username);
+    Optional<User> findUserByUsername(String username);
 
-     Optional<UserEntity> findById(Long id);
+    Optional<User> findById(Long id);
 
-     UserEntity save(UserEntity userEntity);
+    User insert(User userEntity);
+
+    void update(User user);
 }

@@ -1,6 +1,6 @@
 package com.omidmohebbise.todoapp.identity.usecase;
 
-import com.omidmohebbise.todoapp.identity.model.UserEntity;
+import com.omidmohebbise.todoapp.identity.model.User;
 import com.omidmohebbise.todoapp.identity.model.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +12,7 @@ public class FindUserByUsernameUC {
         this.userRepository = userRepository;
     }
 
-    public UserEntity find(String username){
+    public User find(String username){
         return userRepository.findUserByUsername(username).orElseThrow(() -> new RuntimeException("The user not found."));
-
     }
 }
