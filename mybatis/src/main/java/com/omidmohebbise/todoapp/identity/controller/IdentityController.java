@@ -31,17 +31,18 @@ public class IdentityController {
             return ResponseEntity.ok().body(signInUC.execute(authenticationRequestDto));
         } catch (Exception e) {
             e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
 
     @PostMapping("/auth/sign-up")
     public ResponseEntity<?> signUp(@RequestBody @Valid SignUpRequest signUpRequest) {
         try {
-            return ResponseEntity.ok(signUpUC.execute(signUpRequest));
+            signUpUC.execute(signUpRequest);
+            return ResponseEntity.ok().body("");
         } catch (Exception e) {
             e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
     }
 

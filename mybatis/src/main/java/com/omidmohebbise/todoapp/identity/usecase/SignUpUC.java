@@ -21,7 +21,7 @@ public class SignUpUC {
     }
 
     @Transactional
-    public boolean execute(SignUpRequest signUpRequest) {
+    public void execute(SignUpRequest signUpRequest) {
         repetitiveUsernameGuard.validate(signUpRequest.getUsername());
 
         User user = new User();
@@ -30,7 +30,6 @@ public class SignUpUC {
         user.setLastName(signUpRequest.getLastName());
         user.setPassword(passwordEncoder.encode(signUpRequest.getPassword()));
         userRepository.insert(user);
-        return true;
     }
 
 }
