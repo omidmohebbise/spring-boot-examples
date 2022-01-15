@@ -21,7 +21,8 @@ public class User {
     private String lastName;
     private String password;
     private String token;
-    private Date lastRefresh;
+    private Date expireDate;
     private Boolean rememberMe;
+    private RoleEntity role;
 
 }

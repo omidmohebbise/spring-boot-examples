@@ -7,8 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class SignOutUC {
-    private GetCurrentUserUC getCurrentUserUC;
-    private UserRepository userRepository;
+    private final GetCurrentUserUC getCurrentUserUC;
+    private final UserRepository userRepository;
 
     public SignOutUC(GetCurrentUserUC getCurrentUserUC, UserRepository userRepository) {
         this.getCurrentUserUC = getCurrentUserUC;
@@ -19,7 +19,7 @@ public class SignOutUC {
     public void execute() {
         User user = getCurrentUserUC.execute();
         user.setToken(null);
-        user.setLastRefresh(null);
+        user.setExpireDate(null);
         userRepository.insert(user);
     }
 }

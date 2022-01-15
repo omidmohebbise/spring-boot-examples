@@ -11,12 +11,13 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class SignInUC {
 
     @Qualifier("ClientTokenProvider")
-    private TokenProvider tokenProvider;
-    private FindUserByUsernameUC findUserByUsernameUC;
+    private final TokenProvider tokenProvider;
+    private final FindUserByUsernameUC findUserByUsernameUC;
 
     public SignInUC(TokenProvider tokenProvider, FindUserByUsernameUC findUserByUsernameUC) {
         this.tokenProvider = tokenProvider;
@@ -25,14 +26,13 @@ public class SignInUC {
 
 
     public AuthenticationResponseDto execute(AuthenticationRequestDto authenticationRequestDto) {
-        User user = findUserByUsernameUC.find(authenticationRequestDto.getUsername());
-        //String roles = user.getRoles().stream().map(RoleEntity::getTitle).collect(Collectors.joining(","));
+        User user = findUserByUsernameUC.findOrThrow(authenticationRequestDto.getUsername());
         Authentication authentication;
         authentication = new UsernamePasswordAuthenticationToken(user, user.getPassword(),
-                AuthorityUtils.commaSeparatedStringToAuthorityList(null));
+                AuthorityUtils.commaSeparatedStringToAuthorityList("USER_ROLE"));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         return AuthenticationResponseDto.builder()
-                .token(tokenProvider.createToken(authentication, false))
+                .token(tokenProvider.createToken(authentication, authenticationRequestDto.isRememberMe()))
                 .build();
     }
 

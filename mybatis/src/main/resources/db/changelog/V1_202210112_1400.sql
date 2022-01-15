@@ -8,8 +8,8 @@ create table identity.users
         constraint users_pk primary key,
     first_name   varchar(70),
     last_name    varchar(70),
-    last_refresh timestamp,
-    password     varchar(70),
+    expire_date timestamp,
+    password_     varchar(70),
     remember_me  boolean,
     token        varchar(255),
     username     varchar(50)

@@ -38,11 +38,10 @@ public class TokenProvider {
                 .signWith(SignatureAlgorithm.HS512, secretKey)
                 .compact();
 
-        User user = userPrincipal;
-        user.setToken(token);
-        user.setLastRefresh(now);
-        user.setRememberMe(rememberMe != null && rememberMe ? true : false);
-        userRepository.update(user);
+        userPrincipal.setToken(token);
+        userPrincipal.setExpireDate(now);
+        userPrincipal.setRememberMe(rememberMe != null && rememberMe);
+        userRepository.update(userPrincipal);
 
         return token;
     }
@@ -56,13 +55,9 @@ public class TokenProvider {
         return Long.parseLong(claims.getSubject());
     }
 
-    public User findUserByToken(String token) {
-        return userRepository.findById(getUserIdFromToken(token)).get();
-    }
-
-
     public boolean validateToken(String authToken) {
         try {
+
             Jwts.parser().setSigningKey(secretKey).parseClaimsJws(authToken);
             return true;
         } catch (SignatureException ex) {
