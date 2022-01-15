@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 public class DeleteTaskUC {
 
     private final TaskRepository taskRepository;
-    private FindTaskUC findTaskUC;
+    private final FindTaskUC findTaskUC;
 
     public DeleteTaskUC(TaskRepository taskRepository, FindTaskUC findTaskUC) {
         this.taskRepository = taskRepository;

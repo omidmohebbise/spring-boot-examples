@@ -7,10 +7,12 @@ import java.util.Optional;
 
 public interface TaskRepository {
     long insert(Task task);
+
     void update(Task task);
 
-    Optional<Task> findById(long id);
     Optional<Task> findByIdAndUserId(long id, long userId);
-    List<Task> findAll(int page, int size);
+
+    List<Task> findAll(int page, int size, long userId);
+
     void delete(Task byIdAndCurrentUserId);
 }

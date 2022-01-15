@@ -23,6 +23,6 @@ public class User {
     private String token;
     private Date expireDate;
     private Boolean rememberMe;
-    private RoleEntity role;
+    private Role role;
 
 }

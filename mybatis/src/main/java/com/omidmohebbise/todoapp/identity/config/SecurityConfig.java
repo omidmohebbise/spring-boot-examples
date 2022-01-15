@@ -2,7 +2,7 @@ package com.omidmohebbise.todoapp.identity.config;
 
 
 import com.omidmohebbise.todoapp.identity.config.exception.RestAuthenticationEntryPoint;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.omidmohebbise.todoapp.identity.usecase.dto.model.TokenProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,12 +26,17 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 )
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private CustomUserDetailsService customUserDetailsService;
+    private final TokenProvider tokenProvider;
+    private final CustomUserDetailsService customUserDetailsService;
+
+    public SecurityConfig(TokenProvider tokenProvider, CustomUserDetailsService customUserDetailsService) {
+        this.tokenProvider = tokenProvider;
+        this.customUserDetailsService = customUserDetailsService;
+    }
 
     @Bean
     public TokenAuthenticationFilter tokenAuthenticationFilter() {
-        return new TokenAuthenticationFilter();
+        return new TokenAuthenticationFilter(tokenProvider, customUserDetailsService);
     }
 
 
@@ -58,44 +63,43 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .cors()
-                    .and()
+                .and()
                 .sessionManagement()
-                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                    .and()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
                 .csrf()
-                    .disable()
+                .disable()
                 .formLogin()
-                    .disable()
+                .disable()
                 .httpBasic()
-                    .disable()
+                .disable()
                 .exceptionHandling()
-                    .authenticationEntryPoint(new RestAuthenticationEntryPoint())
-                    .and()
+                .authenticationEntryPoint(new RestAuthenticationEntryPoint())
+                .and()
                 .authorizeRequests()
-                    .antMatchers("/",
+                .antMatchers("/",
 
-                            "/v2/api-docs",
-                            "/configuration/ui",
-                            "/swagger-resources",
-                            "/configuration/security", "/swagger-ui.html",
-                            "/webjars/**", "/swagger-resources/configuration/ui",
-                            "/swagge‌r-ui.html", "/docs/**",
-                            "/swagger-resources/configuration/security")
-                        .permitAll()
-                    .antMatchers(
-                            "/auth/**",
-                            "/oauth2/**",
-                            "/users/signin/**"
-                    )
-                        .permitAll()
-                    .anyRequest()
-                        .authenticated();
+                        "/v2/api-docs",
+                        "/configuration/ui",
+                        "/swagger-resources",
+                        "/configuration/security", "/swagger-ui.html",
+                        "/webjars/**", "/swagger-resources/configuration/ui",
+                        "/swagge‌r-ui.html", "/docs/**",
+                        "/swagger-resources/configuration/security")
+                .permitAll()
+                .antMatchers(
+                        "/auth/**",
+                        "/oauth2/**",
+                        "/users/signin/**"
+                )
+                .permitAll()
+                .anyRequest()
+                .authenticated();
 
 
         // Add our custom Token based authentication filter
         http.addFilterBefore(tokenAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
-
 
 
 }

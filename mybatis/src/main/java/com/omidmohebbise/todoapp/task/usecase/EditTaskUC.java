@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EditTaskUC {
     private final TaskRepository taskRepository;
-    private FindTaskUC findTaskUC;
+    private final FindTaskUC findTaskUC;
 
     public EditTaskUC(TaskRepository taskRepository, FindTaskUC findTaskUC) {
         this.taskRepository = taskRepository;

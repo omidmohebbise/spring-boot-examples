@@ -14,10 +14,8 @@ public class UserRepositoryImpl implements UserRepository {
         this.userMapper = userMapper;
     }
 
-
     @Override
     public Optional<User> findUserByUsername(String username) {
-        //return userJpaRepository.findUserByUsername(username);
         return Optional.ofNullable(userMapper.findUserByUsername(username));
     }
 

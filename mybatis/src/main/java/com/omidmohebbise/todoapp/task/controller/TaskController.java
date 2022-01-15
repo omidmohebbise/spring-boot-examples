@@ -8,13 +8,16 @@ import com.omidmohebbise.todoapp.task.usecase.dto.TaskDmlDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
+
 public class TaskController {
 
-    private AddTaskUC addTaskUC;
-    private EditTaskUC editTaskUC;
-    private DeleteTaskUC deleteTaskUC;
-    private FindTaskUC findTaskUC;
+    private final AddTaskUC addTaskUC;
+    private final EditTaskUC editTaskUC;
+    private final DeleteTaskUC deleteTaskUC;
+    private final FindTaskUC findTaskUC;
 
     public TaskController(AddTaskUC addTaskUC, EditTaskUC editTaskUC, DeleteTaskUC deleteTaskUC, FindTaskUC findTaskUC) {
         this.addTaskUC = addTaskUC;
@@ -25,12 +28,12 @@ public class TaskController {
 
 
     @PostMapping(path = "/tasks/add")
-    public ResponseEntity<?> addTask(@RequestBody TaskDmlDto taskDto) {
+    public ResponseEntity<?> addTask(@Valid @RequestBody TaskDmlDto taskDto) {
         return ResponseEntity.ok().body(addTaskUC.execute(taskDto));
     }
 
     @PutMapping(path = "/tasks/edit/{id}")
-    public ResponseEntity<?> editTask(@PathVariable long id, @RequestBody TaskDmlDto taskDto) {
+    public ResponseEntity<?> editTask(@PathVariable long id, @Valid @RequestBody TaskDmlDto taskDto) {
         editTaskUC.execute(id, taskDto);
         return ResponseEntity.ok().body("");
     }

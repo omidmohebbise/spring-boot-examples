@@ -2,7 +2,7 @@ package com.omidmohebbise.todoapp.identity.config;
 
 
 import com.omidmohebbise.todoapp.identity.model.User;
-import com.omidmohebbise.todoapp.identity.config.model.UserPrincipal;
+import com.omidmohebbise.todoapp.identity.usecase.dto.model.UserPrincipal;
 import com.omidmohebbise.todoapp.identity.model.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

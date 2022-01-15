@@ -1,10 +1,9 @@
 package com.omidmohebbise.todoapp.identity.usecase;
 
-import com.omidmohebbise.todoapp.identity.config.model.TokenProvider;
+import com.omidmohebbise.todoapp.identity.usecase.dto.model.TokenProvider;
 import com.omidmohebbise.todoapp.identity.model.User;
-import com.omidmohebbise.todoapp.identity.usecase.dto.AuthenticationRequestDto;
+import com.omidmohebbise.todoapp.identity.usecase.dto.SignInRequestDto;
 import com.omidmohebbise.todoapp.identity.usecase.dto.AuthenticationResponseDto;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -15,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SignInUC {
 
-    @Qualifier("ClientTokenProvider")
+
     private final TokenProvider tokenProvider;
     private final FindUserByUsernameUC findUserByUsernameUC;
 
@@ -25,7 +24,7 @@ public class SignInUC {
     }
 
 
-    public AuthenticationResponseDto execute(AuthenticationRequestDto authenticationRequestDto) {
+    public AuthenticationResponseDto execute(SignInRequestDto authenticationRequestDto) {
         User user = findUserByUsernameUC.findOrThrow(authenticationRequestDto.getUsername());
         Authentication authentication;
         authentication = new UsernamePasswordAuthenticationToken(user, user.getPassword(),

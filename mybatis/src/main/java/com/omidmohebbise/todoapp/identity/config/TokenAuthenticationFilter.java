@@ -1,12 +1,9 @@
 package com.omidmohebbise.todoapp.identity.config;
 
 
-import com.omidmohebbise.todoapp.identity.config.model.TokenProvider;
-import com.omidmohebbise.todoapp.identity.model.repository.UserRepository;
+import com.omidmohebbise.todoapp.identity.usecase.dto.model.TokenProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,19 +17,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
 public class TokenAuthenticationFilter extends OncePerRequestFilter {
 
-    @Autowired
-    @Qualifier("ClientTokenProvider")
-    private TokenProvider tokenProvider;
 
-    private UserRepository  userRepository;
-
-    @Autowired
-    private CustomUserDetailsService customUserDetailsService;
+    private final TokenProvider tokenProvider;
+    private final CustomUserDetailsService customUserDetailsService;
 
 
     private static final Logger logger = LoggerFactory.getLogger(TokenAuthenticationFilter.class);
+
+    public TokenAuthenticationFilter(TokenProvider tokenProvider, CustomUserDetailsService customUserDetailsService) {
+        this.tokenProvider = tokenProvider;
+        this.customUserDetailsService = customUserDetailsService;
+    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {

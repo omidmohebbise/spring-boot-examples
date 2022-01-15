@@ -4,11 +4,13 @@ package com.omidmohebbise.todoapp.identity.controller;
 import com.omidmohebbise.todoapp.identity.usecase.SignInUC;
 import com.omidmohebbise.todoapp.identity.usecase.SignOutUC;
 import com.omidmohebbise.todoapp.identity.usecase.SignUpUC;
-import com.omidmohebbise.todoapp.identity.usecase.dto.AuthenticationRequestDto;
+import com.omidmohebbise.todoapp.identity.usecase.dto.SignInRequestDto;
 import com.omidmohebbise.todoapp.identity.usecase.dto.SignUpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @CrossOrigin
@@ -24,24 +26,25 @@ public class IdentityController {
     }
 
     @PostMapping("/auth/sign-in")
-    public ResponseEntity<?> signIn(@RequestBody AuthenticationRequestDto authenticationRequestDto) {
+    public ResponseEntity<?> signIn(@RequestBody @Valid SignInRequestDto authenticationRequestDto) {
         try {
             return ResponseEntity.ok().body(signInUC.execute(authenticationRequestDto));
         } catch (Exception e) {
             e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e);
         }
     }
 
     @PostMapping("/auth/sign-up")
-    public ResponseEntity<?> signUp(@RequestBody SignUpRequest signUpRequest) {
+    public ResponseEntity<?> signUp(@RequestBody @Valid SignUpRequest signUpRequest) {
         try {
             return ResponseEntity.ok(signUpUC.execute(signUpRequest));
         } catch (Exception e) {
             e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.CONFLICT).body(e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e);
         }
     }
+
     @PutMapping("/auth/sign-out")
     public ResponseEntity<?> signOut() {
         try {

@@ -1,4 +1,4 @@
-package com.omidmohebbise.todoapp.identity.config.model;
+package com.omidmohebbise.todoapp.identity.usecase.dto.model;
 import com.omidmohebbise.todoapp.identity.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

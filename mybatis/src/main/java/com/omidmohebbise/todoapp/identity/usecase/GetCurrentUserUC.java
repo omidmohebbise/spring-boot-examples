@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class GetCurrentUserUC {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public GetCurrentUserUC(UserRepository userRepository) {
         this.userRepository = userRepository;

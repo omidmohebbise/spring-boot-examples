@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 public class TaskRepositoryImpl implements TaskRepository {
 
-    private TaskMapper taskMapper;
+    private final TaskMapper taskMapper;
 
     public TaskRepositoryImpl(TaskMapper taskMapper) {
         this.taskMapper = taskMapper;
@@ -28,18 +28,13 @@ public class TaskRepositoryImpl implements TaskRepository {
     }
 
     @Override
-    public Optional<Task> findById(long id) {
-        return Optional.ofNullable(taskMapper.findById(id));
-    }
-
-    @Override
     public Optional<Task> findByIdAndUserId(long id, long userId) {
         return Optional.ofNullable(taskMapper.findByIdAndUserId(id, userId));
     }
 
     @Override
-    public List<Task> findAll(int page, int size) {
-        return taskMapper.findAll(page, size);
+    public List<Task> findAll(int page, int size , long userId) {
+        return taskMapper.findAll(page, size,userId);
     }
 
     @Override

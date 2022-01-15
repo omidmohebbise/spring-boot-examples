@@ -11,8 +11,8 @@ public class RepetitiveUsernameGuard {
         this.findUserByUsernameUC = findUserByUsernameUC;
     }
 
-    public void validate(String username){
-        if(findUserByUsernameUC.find(username).isPresent()){
+    public void validate(String username) {
+        if (findUserByUsernameUC.find(username).isPresent()) {
             throw new SecurityException("The username is already in use.");
         }
     }
