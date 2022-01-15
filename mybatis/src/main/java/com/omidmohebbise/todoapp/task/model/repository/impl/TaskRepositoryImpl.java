@@ -19,7 +19,8 @@ public class TaskRepositoryImpl implements TaskRepository {
 
     @Override
     public long insert(Task task) {
-        return taskMapper.insert(task);
+        taskMapper.insert(task);
+        return task.getId();
     }
 
     @Override

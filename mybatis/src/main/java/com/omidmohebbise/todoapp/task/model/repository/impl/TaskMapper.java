@@ -12,8 +12,9 @@ import java.util.List;
 public interface TaskMapper {
 
 
-    @Insert(value = "insert into todo_app.tasks (do_date, done, title, user_id) values (#{doDate} , #{done}, #{title}, #{userId});")
-    long insert(Task task);
+    @Insert( value = "insert into todo_app.tasks (do_date, done, title, user_id) values (#{doDate} , #{done}, #{title}, #{userId});")
+    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
+    Long insert(Task task);
 
     @Select("SELECT * FROM todo_app.tasks WHERE id = #{id} and user_id = #{userId}")
     Task findByIdAndUserId(long id, long userId);

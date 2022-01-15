@@ -18,7 +18,7 @@ public class TaskDmlDto {
     @NotNull(message = "Title may not be null.")
     @Length(min = 3, message = "Title may not be empty.")
     private String title;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssssZ")
     private Date doDate;
     private boolean done;
 }
