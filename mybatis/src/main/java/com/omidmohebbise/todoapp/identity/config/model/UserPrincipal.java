@@ -5,14 +5,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Map;
 
 public class UserPrincipal implements  UserDetails {
     private final Long id;
     private final String username;
     private final String password;
     private final Collection<? extends GrantedAuthority> authorities;
-    private Map<String, Object> attributes;
 
     public UserPrincipal(Long id, String mobile, String password, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
@@ -22,23 +20,14 @@ public class UserPrincipal implements  UserDetails {
     }
 
     public static UserPrincipal create(User user) {
-//        List<GrantedAuthority> authorities = user.getRoles().stream().map(x->
-//                new SimpleGrantedAuthority(x.getTitle())).collect(Collectors.toList());
-
         return new UserPrincipal(
                 user.getId(),
                 user.getUsername(),
                 user.getPassword(),
                 new ArrayList<>()
-                //authorities
         );
     }
 
-    public static UserPrincipal create(User user, Map<String, Object> attributes) {
-        UserPrincipal userPrincipal = UserPrincipal.create(user);
-        userPrincipal.setAttributes(attributes);
-        return userPrincipal;
-    }
 
     public Long getId() {
         return id;
@@ -80,9 +69,5 @@ public class UserPrincipal implements  UserDetails {
         return authorities;
     }
 
-
-    public void setAttributes(Map<String, Object> attributes) {
-        this.attributes = attributes;
-    }
 
   }
