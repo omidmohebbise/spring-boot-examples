@@ -1,15 +1,17 @@
-version: "3"
+version: '2'
 
 services:
   cassandra:
-    image: docker.io/bitnami/cassandra:latest
+    image: docker.io/bitnami/cassandra:4.0
     ports:
-      - '7000:7000'
+#      - '7000:7000'
       - '9042:9042'
+    volumes:
+      - 'cassandra_data:/bitnami'
     environment:
       - CASSANDRA_SEEDS=cassandra
       - CASSANDRA_PASSWORD_SEEDER=yes
-#      - CASSANDRA_USERNAME=user
-#      - CASSANDRA_PASSWORD=pass123
-      - CASSANDRA_CFG_RACKDC_PREFER_LOCAL=true
-
+      - CASSANDRA_PASSWORD=cassandra
+volumes:
+  cassandra_data:
+    driver: local

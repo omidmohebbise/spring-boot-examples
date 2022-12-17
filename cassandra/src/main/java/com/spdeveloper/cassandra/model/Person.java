@@ -1,17 +1,18 @@
-package com.spdeveloper.cassandra;
+package com.spdeveloper.cassandra.model;
 
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
 @Table
+
 public class Person {
 
     @PrimaryKey private final String id;
 
     private final String name;
-    private final int age;
+    private final short age;
 
-    public Person(String id, String name, int age) {
+    public Person(String id, String name, short age) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -21,11 +22,11 @@ public class Person {
         return id;
     }
 
-    private String getName() {
+    public String getName() {
         return name;
     }
 
-    private int getAge() {
+    public short getAge() {
         return age;
     }
 
