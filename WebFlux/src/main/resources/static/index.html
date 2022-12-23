@@ -1,0 +1,35 @@
+<html>
+<head>
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Load our React component. -->
+    <script src="like_button.js"></script>
+</head>
+<body>
+<h1>
+    Welcome to WebFlux example
+
+</h1>
+<div id="rootdiv">
+
+</div>
+<script>
+    function Welcome(props) {
+        return (<h1> Hello, {props.name}</h1>);
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('rootdiv'));
+    const element = <Welcome name="Sara" />;
+    root.render(element);
+</script>
+
+<script>
+    // var socket = new WebSocket('ws://localhost:8080/profiles');
+    // socket.addEventListener('message', function (event) {
+    //     window.console.log('message from server: ' + event.data);
+    // });
+</script>
+</body>
+</html>

@@ -4,6 +4,7 @@ import com.omidmohebbise.webflox.model.Employee;
 import com.omidmohebbise.webflox.model.repository.EmployeeRepository;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -23,12 +24,16 @@ public class EmployeeService {
         return repository.findAll();
     }
 
-    @Scheduled(fixedRate = 1000)
+    @Scheduled(fixedRate = 2000)
     private void execute() {
+        insertAnObject();
+    }
+    @Transactional
+    public void insertAnObject() {
         var result = repository.count();
         var counter = result.block();
-        var r = repository.save(new Employee(counter, "name family" + counter, counter * 100));
-        System.out.println(r.block());
+        var r = repository.save(new Employee(++counter, "name family" + counter, counter * 100));
+       System.out.println(r.block());
     }
 
 }
