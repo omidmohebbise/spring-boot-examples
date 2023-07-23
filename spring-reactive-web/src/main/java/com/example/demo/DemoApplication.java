@@ -23,9 +23,9 @@ public class DemoApplication {
 
     private static int counter = 0;
     private static int responseCounter = 0;
-    @Scheduled(fixedRate = 10)
+    //@Scheduled(fixedRate = 10)
     public void timer() {
-        if (greetingClient != null && counter < 10000) {
+        if (greetingClient != null && counter < 1000) {
 
             greetingClient.getMessage(counter++).subscribe(s -> {
                 responseCounter++;

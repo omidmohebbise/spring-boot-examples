@@ -17,7 +17,6 @@ class PersonController {
 
     @GetMapping("/find-all")
     fun findAll(): ResponseEntity<List<Person>> {
-
         return ResponseEntity.ok().body(personRepository.findAll())
     }
     @GetMapping("/add")

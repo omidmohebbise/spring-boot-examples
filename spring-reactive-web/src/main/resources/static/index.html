@@ -3,34 +3,23 @@
 <body>
 
 <h1 style="color:blue;"> Spring Boot Reactive Programming</h1>
-<div class="events"></div>
+<div id="events"></div>
 <p style="color:red;">
 
 
 </p>
 <script>
-    var clientWebSocket = new WebSocket("ws://localhost:8080/hello");
-    // clientWebSocket.onopen = function() {
-    //     console.log("clientWebSocket.onopen", clientWebSocket);
-    //     console.log("clientWebSocket.readyState", "websocketstatus");
-    //     clientWebSocket.send("event-me-from-browser");
-    // }
-    // clientWebSocket.onclose = function(error) {
-    //     console.log("clientWebSocket.onclose", clientWebSocket, error);
-    //     events("Closing connection");
-    // }
-    // clientWebSocket.onerror = function(error) {
-    //     console.log("clientWebSocket.onerror", clientWebSocket, error);
-    //     events("An error occured");
-    // }
-    clientWebSocket.onmessage = function(error) {
-        console.log("clientWebSocket.onmessage", clientWebSocket, error);
-        events(error.data);
-        // alert("Data received")
-    }
-    function events(responseEvent) {
-        document.querySelector(".events").innerHTML += responseEvent + "<br>";
-    }
+    const evtSource = new EventSource("http://localhost:8080/simple-test");
+
+    if (!evtSource)
+        console.log("JS could not connet to the server")
+    else
+        evtSource.addEventListener("message", (e) => {
+            console.log(e)
+            document.getElementById("events").innerHtml =  e.data
+        });
+
+
 </script>
 </body>
 </html>
