@@ -1,0 +1,2 @@
+module spring.modulith.main {
+}
