@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.omidmohebbise'
-version = '0.0.1-SNAPSHOT'
+version = 'demoapp'
 
 java {
     sourceCompatibility = '17'
