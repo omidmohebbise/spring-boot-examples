@@ -1,13 +1,13 @@
 {
   "request": {
     "method": "GET",
-    "urlPath": "/api/test"
+    "urlPath": "/api/hello-world"
   },
   "response": {
     "status": 200,
     "headers": {
       "Content-Type": "application/json"
     },
-    "body": "{ \"message\": \"This is a mock response from WireMock\" }"
+    "body": "{ \"message\": \"Hello World from WireMock\" }"
   }
 }
