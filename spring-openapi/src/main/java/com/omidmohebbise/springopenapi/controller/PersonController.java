@@ -2,6 +2,7 @@ package com.omidmohebbise.springopenapi.controller;
 
 
 import com.omidmohebbise.springopenapi.controller.dto.PersonBasicDTO;
+import com.omidmohebbise.springopenapi.controller.dto.PersonDetailDTO;
 import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
@@ -41,8 +42,8 @@ public class PersonController {
     @Hidden
     @Operation(summary = "Get person detail info by id", description = "Endpoint to get Person detail information.")
     @ApiResponse(description = "return all person information")
-    public ResponseEntity<PersonBasicDTO> getPersonDetailInfo(@PathVariable Long id) {
-        return ResponseEntity.ok(new PersonBasicDTO(id, "Omid ", "Mohebbi"));
+    public ResponseEntity<PersonDetailDTO> getPersonDetailInfo(@PathVariable Long id) {
+        return ResponseEntity.ok(new PersonDetailDTO(id, "Omid ", "Mohebbi" , 10 , "Amsterdam, Iran"));
     }
 
 
