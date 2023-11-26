@@ -1,0 +1,64 @@
+version: '3.8'
+
+networks:
+  monitoring:
+    driver: bridge
+
+volumes:
+  prometheus_data: {}
+
+services:
+  web-1:
+    build: .
+    container_name: spring-app-1
+    ports:
+      - "8080:8080"
+    restart: no
+    environment:
+      SPRING_APPLICATION_NAME: demo-app-1
+    networks:
+      - monitoring
+  web-2:
+    build: .
+    container_name: spring-app-2
+    ports:
+      - "8081:8080"
+    restart: no
+    environment:
+      SPRING_APPLICATION_NAME: demo-app-2
+    networks:
+      - monitoring
+
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_USER=user
+      - POSTGRES_DB=testdb
+    networks:
+      - monitoring
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./foundation/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    networks:
+      - monitoring
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - 3000:3000
+#    volumes:
+#      - ./foundation/provisioning:/etc/grafana/provisioning
+#      - ./foundation/grafana/dashboards:/var/lib/grafana/dashboards
+    env_file:
+      - foundation/grafana.env
+    networks:
+      - monitoring

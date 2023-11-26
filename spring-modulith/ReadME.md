@@ -1,0 +1,3 @@
+- complete model and example based on the spring document
+- write some unit test
+- write appropriate read me document

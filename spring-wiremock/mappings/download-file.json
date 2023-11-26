@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/api/download/simple-file.pdf"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/pdf",
+      "Content-Disposition": "attachment; filename=\"simple-file.pdf\""
+    },
+    "bodyFileName": "simple-file.pdf"
+  }
+}
