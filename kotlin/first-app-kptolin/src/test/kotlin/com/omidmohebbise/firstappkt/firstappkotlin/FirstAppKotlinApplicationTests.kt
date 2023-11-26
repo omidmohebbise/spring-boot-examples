@@ -1,10 +1,10 @@
-package com.omidmohebbise.kotlin
+package com.omidmohebbise.firstappkt.firstappkotlin
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class KotlinApplicationTests {
+class FirstAppKotlinApplicationTests {
 
     @Test
     fun contextLoads() {
